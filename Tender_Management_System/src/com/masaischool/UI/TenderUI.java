@@ -79,4 +79,33 @@ public class TenderUI {
 	}
 	
 	
+	static void AssignTenditoVendi(Scanner sc) throws SomethingWentWrongException, NoRecordFoundException {
+		TenderDAO ten = new TenderDAOimpl();
+		System.out.println("Enter tender name which you want to assign");
+		String tendi_name = sc.next();
+		System.out.println("Enter vender_id of vender whom you want to assign the tender");
+		String ven_id = sc.next();
+		int count = 0;
+		
+		if(ten.VerifyTenderName(tendi_name)) {
+			count++;
+		}else {
+			System.out.println("This tender name doesn't exists");
+		}
+		
+		if(ten.VerifyVenderid(ven_id)) {
+			count++;
+		}
+		else {
+			System.out.println("This vender_id doesn't exists");
+		}
+		
+		if(count == 2) {
+			
+			ten.AssignTendertoVender(tendi_name, ven_id);
+		    System.out.println("Tender Assigned Successfully");
+		}
+		
+	}
+	
 }

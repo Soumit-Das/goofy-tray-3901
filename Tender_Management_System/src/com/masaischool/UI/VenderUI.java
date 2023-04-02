@@ -37,12 +37,13 @@ public class VenderUI {
 	
 	
 static void ViewAllBidsofaTender(Scanner sc) {
-		
+	    List<BidderDTO> list = new ArrayList<>();
 		System.out.println("Enter Tender_id whose bids will be displayed");
 		String tender_id = sc.next();
-		VendorDAO ven = new VendorDAOimpl();
+		BidderDAO ven = new BidderDAOimpl();
         try {
-			ven.ViewAllBidsofaTender(tender_id);
+        	list = ven.viewAllBidsofaTender(tender_id);
+        	System.out.println(list);
 		} catch (SomethingWentWrongException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

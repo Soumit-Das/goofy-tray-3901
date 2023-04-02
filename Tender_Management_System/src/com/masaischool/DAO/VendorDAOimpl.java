@@ -31,7 +31,7 @@ public class VendorDAOimpl implements VendorDAO{
 		try {
 			connection = DBUtils.ConnectToDatabse();
 			
-			String SELECT_QUERY = "SELECT * FROM VENDOR";
+			String SELECT_QUERY = "SELECT * FROM VENDER";
 			
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
 			

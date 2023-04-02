@@ -74,12 +74,14 @@ public class BidderDTOimpl implements BidderDTO{
 		Status = status;
 	}
 
+@Override
+public String toString() {
+	return "Bid_id : " + Bid_id + ", Vender_id : " + Vender_id + ", Tender_id : " + Tender_id + ", Bid_amount : "
+			+ Bid_amount + ", Status : " + Status + "\n";
+}
 
-	@Override
-	public String toString() {
-		return "Bid_id : " + Bid_id + ", Vender_id : " + Vender_id + ", Tender_id : " + Tender_id
-				+ ", Bid_amount : " + Bid_amount + ", Status : " + Status + "\n";
-	}
+
+
 	
 	
 	

@@ -31,19 +31,20 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 		try {
 			connection = DBUtils.ConnectToDatabse();
 			
-			String SELECT_QUERY = "SELECT * FROM Bidder WHERE Tender_id = ?";
+			String SELECT_QUERY = "SELECT * FROM BIDDER WHERE Tender_id = ?";
 			
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+			ps.setString(1, tend_id);
 			
 			ResultSet rs = ps.executeQuery();
 			
 			if(isResultsetEmpty(rs)) {
-				throw new NoRecordFoundException("No Record Found");
+				throw new NoRecordFoundException("for this tender id");
 			}
 			
 			while(rs.next()) {
 				
-				list.add(new BidderDTOimpl(rs.getInt("Bid_id"),rs.getString("Vender_id"),rs.getString("Tender_id"),rs.getInt("Bid_amount"),rs.getString("Status")));
+				list.add(new BidderDTOimpl(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5)));
 				
 			}
 			
@@ -51,6 +52,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			
 		}catch(SQLException e) {
 			System.out.println(e);
+			e.printStackTrace();
 		}finally {
 			try {
 				DBUtils.closeConnection(connection);
@@ -87,7 +89,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			
 			while(rs.next()) {
 				
-				list.add(new BidderDTOimpl(rs.getInt("Bid_id"),rs.getString("Vender_id"),rs.getString("Tender_id"),rs.getInt("Bid_amount"),rs.getString("Status")));
+//				list.add(new BidderDTOimpl(rs.getInt("Bid_id"),rs.getString("Vender_id"),rs.getString("Tender_id"),rs.getInt("Bid_amount"),rs.getString("Status")));
 				
 			}
 			

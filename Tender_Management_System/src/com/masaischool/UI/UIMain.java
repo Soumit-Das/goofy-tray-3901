@@ -16,7 +16,7 @@ public class UIMain {
 		System.out.println("2. Create new tenders.");
 		System.out.println("3. View All the Tenders.");
 		System.out.println("4. View All the Bids of a tender.");
-		System.out.println("6. Assign tender to a vendor.");
+		System.out.println("5. Assign tender to a vendor.");
 		
 	}
 	
@@ -47,7 +47,15 @@ public class UIMain {
 			VenderUI.ViewAllBidsofaTender(sc);
 			break;
 		case 5:
-//			AdminUI.AssignTenditoVendi();
+			try {
+				TenderUI.AssignTenditoVendi(sc);
+			} catch (SomethingWentWrongException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoRecordFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		default : System.out.println("Wrong credentials");	
 		
@@ -145,10 +153,10 @@ public class UIMain {
 				if(ven.VerifyVendercredentials(username,password)) {
 					DisplayVendormenu(sc);
 				}else {
-					System.out.println("Wrong credentials , Fuck off u bitch");
+					System.out.println("Wrong credentials");
 				}
 			} catch (NoRecordFoundException e) {
-				System.out.println("Wrong credentials , Fuck off u bitch");
+				System.out.println("Wrong credentials");
 
 			}
 		} catch (SomethingWentWrongException e) {
