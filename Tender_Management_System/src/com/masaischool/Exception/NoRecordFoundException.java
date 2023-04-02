@@ -8,7 +8,7 @@ public class NoRecordFoundException extends Exception{
 
 	@Override
 	public String toString() {
-		return "No Record Found Exception";
+		return "No Record Found Exception " + getMessage();
 	}
 	
 	

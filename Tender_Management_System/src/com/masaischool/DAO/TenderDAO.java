@@ -11,5 +11,5 @@ public interface TenderDAO {
 	public void addTender(TenderDTO tenddto)throws SomethingWentWrongException;
 	public List<TenderDTO> ViewTenders()throws SomethingWentWrongException,NoRecordFoundException;
 	public List<TenderDTO> ViewTenderByTenderId(String tend_id)throws SomethingWentWrongException,NoRecordFoundException;
-	
+//	public void AssignTenditoVendi(String )
 }

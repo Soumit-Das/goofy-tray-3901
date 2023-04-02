@@ -152,4 +152,86 @@ public class VendorDAOimpl implements VendorDAO{
 		return false;
 	}
 
+	@Override
+	public void updatecredentials(String Name, String password,String ven_id) throws SomethingWentWrongException {
+		// TODO Auto-generated method stub
+		
+		Connection connection = null;
+		  
+		  try {
+			  
+			  connection = DBUtils.ConnectToDatabse();
+			  
+			  String INSERT_QUERY = "UPDATE VENDER SET Vender_Name = ?,Vender_password = ? WHERE Vender_id = ?";
+			  
+			  PreparedStatement ps = connection.prepareStatement(INSERT_QUERY);
+			  
+			  ps.setString(1, Name);
+			  ps.setString(2, password);
+			  ps.setString(3, ven_id);
+			  
+			  ps.executeUpdate();
+//			  System.out.println("Updated Sucessfully D");
+		  }catch(SQLException e) {
+			  System.out.println("Not updated D");
+			  System.out.println(e);
+		  }finally {
+			  try {
+				DBUtils.closeConnection(connection);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  }
+		
+	}
+	
+	@Override
+	public boolean VerifyVendercredentialsforUpdate(String vd_id) throws SomethingWentWrongException, NoRecordFoundException {
+		// TODO Auto-generated method stub
+		
+		Connection connection = null;
+		List<VendorDTO> list = new ArrayList<>();
+		  try {
+			  
+			  connection = DBUtils.ConnectToDatabse();
+			  
+			  String VERIFY_QUERY = "SELECT * FROM VENDER WHERE Vender_id = ?";
+			  
+			  PreparedStatement ps = connection.prepareStatement(VERIFY_QUERY);
+			  
+			  ps.setString(1, vd_id);
+
+			  
+			  ResultSet rs = ps.executeQuery();
+				
+				if(isResultsetEmpty(rs)) {
+					throw new NoRecordFoundException("for this vendor id");
+//					System.out.println("No Record Found for this vender id");
+				}
+				
+				while(rs.next()) {
+					
+					list.add(new VendorDTOimpl(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
+					
+				}
+			  
+//			  ps.executeUpdate();
+//			  System.out.println("Welcome Vendor");
+			  return true;
+		  }catch(SQLException e) {
+			  System.out.println("No Record Found for this vender_id");
+			  System.out.println(e);
+		  }finally {
+			  try {
+				DBUtils.closeConnection(connection);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  }
+		return false;
+	}
+	
+
 }

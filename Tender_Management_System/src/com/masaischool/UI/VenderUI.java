@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.masaischool.DAO.BidderDAO;
+import com.masaischool.DAO.BidderDAOimpl;
 import com.masaischool.DAO.VendorDAO;
 import com.masaischool.DAO.VendorDAOimpl;
+import com.masaischool.DTO.BidderDTO;
 import com.masaischool.DTO.VendorDTO;
 import com.masaischool.Exception.NoRecordFoundException;
 import com.masaischool.Exception.SomethingWentWrongException;
@@ -50,13 +53,39 @@ static void ViewAllBidsofaTender(Scanner sc) {
 	}
 	
 
-static void UpdateAccDetails(Scanner sc) {
+static void UpdateAccDetails(Scanner sc) throws SomethingWentWrongException, NoRecordFoundException {
+	VendorDAO ven = new VendorDAOimpl();
+	System.out.println("Enter vender id whose credentials you want to update");
+	String ven_id = sc.next();
 	
-	System.out.println("Enter new vender name");
-	String name = sc.next();
-	System.out.println("Enter new vender password");
-	String password = sc.next();
-	
+	if(ven.VerifyVendercredentialsforUpdate(ven_id)) {
+		System.out.println("Enter new vender name");
+		String name = sc.next();
+		System.out.println("Enter new vender password");
+		String password = sc.next();
+		
+		try {
+			ven.updatecredentials(name, password, ven_id);
+		    System.out.println("Updated successfully");
+		} catch (SomethingWentWrongException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Cannot update details");
+			e.printStackTrace();
+		}
+	}else {
+		System.out.println("Wrong vender id");
+	}
+
+}
+
+
+static void viewbidhistory(Scanner sc) throws SomethingWentWrongException, NoRecordFoundException {
+	BidderDAO ven = new BidderDAOimpl();
+	System.out.println("Enter Vendor_id whose bids you want to view");
+	String ven_id = sc.next();
+	List<BidderDTO> list = new ArrayList<>();
+	list = ven.viewAllBidsOfaVendor(ven_id);
+	System.out.println(list);
 }
 
 

@@ -49,11 +49,9 @@ public class UIMain {
 		case 5:
 //			AdminUI.AssignTenditoVendi();
 			break;
-		default : System.out.println("Sahi option select krna nhi ata BDSK");	
+		default : System.out.println("Wrong credentials");	
 		
 		}
-		
-	
 	}while(choice != 0);
 	}
 	
@@ -67,7 +65,7 @@ public class UIMain {
 		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
 			Displayadminmenu(sc);
 		}else {
-			System.out.println("Wrong credentials , Fuck off u bitch");
+			System.out.println("Wrong credentials");
 		}
 		
 	}
@@ -97,7 +95,15 @@ public class UIMain {
 			System.out.println("Logged out");
 			break;
 		case 1:
-//			VenderUI.UpdateAccDetails(); Update account details pending
+			try {
+				VenderUI.UpdateAccDetails(sc);
+			} catch (SomethingWentWrongException e) {
+				// TODO Auto-generated catch blockXj
+				e.printStackTrace();
+			} catch (NoRecordFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		case 2:
 			TenderUI.ViewTenders();
@@ -106,12 +112,20 @@ public class UIMain {
 //			TenderUI.PlaceBid();
 			break;
 		case 4:
-//			Vendor.viewbidhistory();
+			try {
+				VenderUI.viewbidhistory(sc);
+			} catch (SomethingWentWrongException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoRecordFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		case 5:
 			TenderUI.ViewtenderByid(sc);
 			break;
-		default : System.out.println("Sahi option select krna nhi ata BDSK");	
+		default : System.out.println("Wrong choice");	
 		
 		}
 		
