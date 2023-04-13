@@ -1,6 +1,6 @@
 # TENDER MANAGEMENT SYSTEM
 
-<img align="center" alt="coding" width="200" Height="300" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/turning.png">
+<img align="center" alt="coding" margin-left="50px" width="300" Height="350" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/turning.png">
 
 
 This is a backend based tender management system which allows both tender and vendor to carryout their works effeiciently
