@@ -2,8 +2,8 @@ package com.masaischool.DTO;
 
 public interface BidderDTO {
 
-	public int getBid_id();
-	public void setBid_id(int bid_id);
+//	public int getBid_id();
+//	public void setBid_id(int bid_id);
 	public String getVender_id();
 	public void setVender_id(String vender_id);
 	public String getTender_id();

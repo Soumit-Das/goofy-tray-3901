@@ -44,7 +44,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			
 			while(rs.next()) {
 				
-				list.add(new BidderDTOimpl(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5)));
+				list.add(new BidderDTOimpl(rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5)));
 				
 			}
 			
@@ -89,7 +89,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			
 			while(rs.next()) {
 				
-//				list.add(new BidderDTOimpl(rs.getInt("Bid_id"),rs.getString("Vender_id"),rs.getString("Tender_id"),rs.getInt("Bid_amount"),rs.getString("Status")));
+				list.add(new BidderDTOimpl(rs.getString("Vender_id"),rs.getString("Tender_id"),rs.getInt("Bid_amount"),rs.getString("Status")));
 				
 			}
 			

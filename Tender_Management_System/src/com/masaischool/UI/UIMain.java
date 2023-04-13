@@ -10,14 +10,14 @@ import com.masaischool.Exception.SomethingWentWrongException;
 public class UIMain {
 
 	static void adminMenu() {
-		
+		System.out.println("");
 		System.out.println("0. Logout");
 		System.out.println("1. View all the vendors.");
 		System.out.println("2. Create new tenders.");
 		System.out.println("3. View All the Tenders.");
 		System.out.println("4. View All the Bids of a tender.");
 		System.out.println("5. Assign tender to a vendor.");
-		
+		System.out.println("");
 	}
 	
 	
@@ -27,7 +27,7 @@ public class UIMain {
 		adminMenu();
 		System.out.println("Enter Selection");
 		choice = sc.nextInt();
-		
+		System.out.println("");
 		switch(choice) {
 		
 		case 0:
@@ -51,10 +51,7 @@ public class UIMain {
 				TenderUI.AssignTenditoVendi(sc);
 			} catch (SomethingWentWrongException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoRecordFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 			break;
 		default : System.out.println("Wrong credentials");	
@@ -71,6 +68,7 @@ public class UIMain {
 		String password = sc.next();
 		
 		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
+			System.out.println("Welcome Admin");
 			Displayadminmenu(sc);
 		}else {
 			System.out.println("Wrong credentials");
@@ -80,13 +78,14 @@ public class UIMain {
 	
 	static void VendorMenu() {
 		
+		System.out.println("");
 		System.out.println("0. Logout");
 		System.out.println("1. Update account details and change password.");
 		System.out.println("2. View all the current Tenders.");
 		System.out.println("3. Place a Bid against a Tender.");
 		System.out.println("4. View his own Bid History with bid status");
 		System.out.println("5. Search for a tender by tender id or date range.");
-		
+		System.out.println("");
 	}
 	
 	static void DisplayVendormenu(Scanner sc) {
@@ -95,7 +94,7 @@ public class UIMain {
 		VendorMenu();
 		System.out.println("Enter Selection");
 		choice = sc.nextInt();
-		
+		System.out.println("");
 		switch(choice) {
 		
 		case 0:
@@ -167,7 +166,15 @@ public class UIMain {
 	
 	
    public static void main(String[] args) {
-	
+	   System.out.println("-------------------------------------------------------------");
+	   System.out.println("");
+	   System.out.println("           Welcome to Tender Management System");
+	   System.out.println("");
+
+	   System.out.println("-------------------------------------------------------------");
+	   System.out.println("");
+	   
+	   
 	   Scanner sc = new Scanner(System.in);
 	   System.out.println("1. Admin Login");
 	   System.out.println("2. Vendor Login");

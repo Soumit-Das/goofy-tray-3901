@@ -158,13 +158,13 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  ps.executeUpdate();
 			  
 		  }catch(SQLException e) {
-			  System.out.println(e);
+//			  System.out.println(e);
 		  }finally {
 			  try {
 				DBUtils.closeConnection(connection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		  }
 		
@@ -189,7 +189,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  ResultSet rs = ps.executeQuery();
 				
 				if(isResultsetEmpty(rs)) {
-					throw new NoRecordFoundException("No Record Found");
+					throw new NoRecordFoundException("with this tender name");
 				}
 				
 				while(rs.next()) {
@@ -203,13 +203,13 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  return true;
 		  }catch(SQLException e) {
 			  System.out.println("Wrong Credentials");
-			  System.out.println(e);
+//			  System.out.println(e);
 		  }finally {
 			  try {
 				DBUtils.closeConnection(connection);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+//				e.printStackTrace();
 			}
 		  }
 		return false;
@@ -235,7 +235,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  ResultSet rs = ps.executeQuery();
 				
 				if(isResultsetEmpty(rs)) {
-					throw new NoRecordFoundException("No Record Found");
+					throw new NoRecordFoundException("with this Vendor id");
 				}
 				
 				while(rs.next()) {
