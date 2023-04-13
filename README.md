@@ -1,4 +1,11 @@
-# goofy-tray-3901
+# TENDER MANAGEMENT SYSTEM
+
+<p align="center">
+  <img align="center" alt="coding" left="50" width="350" Height="400" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/turning.png">
+</p>
+
+<!-- <img align="center" alt="coding" left="50" width="400" Height="450" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/turning.png"> -->
+
 
 This is a backend based tender management system which allows both tender and vendor to carryout their works effeiciently
 It allows the admin to list the tenders in this tender management system
