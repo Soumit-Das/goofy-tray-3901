@@ -1,5 +1,9 @@
 # goofy-tray-3901
+
 This is a backend based tender management system which allows both tender and vendor to carryout their works effeiciently
+It allows the admin to list the tenders in this tender management system
+It allows vendors to bids for the vendors which they want to own
+
 
 
 Tech stack used
@@ -40,4 +44,4 @@ Functionalities of Vender
 6. Logout
 
 
-<img align="right" alt="coding" width="1100" Height="400" src="https://user-images.githubusercontent.com/87129673/212978835-a169a8e7-e92f-43a1-af15-6922438fd43b.png">
+<img align="right" alt="coding" width="1100" Height="600" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/Action%20Item.png">
