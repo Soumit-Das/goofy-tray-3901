@@ -1,5 +1,9 @@
 # goofy-tray-3901
+
 This is a backend based tender management system which allows both tender and vendor to carryout their works effeiciently
+It allows the admin to list the tenders in this tender management system
+It allows vendors to bids for the vendors which they want to own
+
 
 
 Tech stack used
