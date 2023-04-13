@@ -40,4 +40,4 @@ Functionalities of Vender
 6. Logout
 
 
-<img align="right" alt="coding" width="1100" Height="400" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/Action%20Item.png">
+<img align="right" alt="coding" width="1100" Height="600" src="https://github.com/Soumit-Das/goofy-tray-3901/blob/master/Action%20Item.png">
