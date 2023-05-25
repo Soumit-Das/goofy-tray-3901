@@ -107,7 +107,7 @@ public class VendorDAOimpl implements VendorDAO{
 	}
 
 	@Override
-	public boolean VerifyVendercredentials(String username, String password) throws SomethingWentWrongException, NoRecordFoundException {
+	public boolean VerifyVendercredentials(String UserName, String Password) throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -120,8 +120,8 @@ public class VendorDAOimpl implements VendorDAO{
 			  
 			  PreparedStatement ps = connection.prepareStatement(VERIFY_QUERY);
 			  
-			  ps.setString(1, username);
-			  ps.setString(2, password);
+			  ps.setString(1, UserName);
+			  ps.setString(2, Password);
 			  
 			  ResultSet rs = ps.executeQuery();
 				
@@ -153,7 +153,7 @@ public class VendorDAOimpl implements VendorDAO{
 	}
 
 	@Override
-	public void updatecredentials(String Name, String password,String ven_id) throws SomethingWentWrongException {
+	public void Updatecredentials(String Name, String Password,String VendorId) throws SomethingWentWrongException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -167,8 +167,8 @@ public class VendorDAOimpl implements VendorDAO{
 			  PreparedStatement ps = connection.prepareStatement(INSERT_QUERY);
 			  
 			  ps.setString(1, Name);
-			  ps.setString(2, password);
-			  ps.setString(3, ven_id);
+			  ps.setString(2, Password);
+			  ps.setString(3, VendorId);
 			  
 			  ps.executeUpdate();
 //			  System.out.println("Updated Sucessfully D");
@@ -187,7 +187,7 @@ public class VendorDAOimpl implements VendorDAO{
 	}
 	
 	@Override
-	public boolean VerifyVendercredentialsforUpdate(String vd_id) throws SomethingWentWrongException, NoRecordFoundException {
+	public boolean VerifyVendercredentialsforUpdate(String VendorId) throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -200,7 +200,7 @@ public class VendorDAOimpl implements VendorDAO{
 			  
 			  PreparedStatement ps = connection.prepareStatement(VERIFY_QUERY);
 			  
-			  ps.setString(1, vd_id);
+			  ps.setString(1, VendorId);
 
 			  
 			  ResultSet rs = ps.executeQuery();

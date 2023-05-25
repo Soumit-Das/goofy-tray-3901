@@ -19,7 +19,7 @@ import com.masaischool.Exception.SomethingWentWrongException;
 public class TenderDAOimpl implements TenderDAO{
 
 	@Override
-	public void addTender(TenderDTO tenddto) throws SomethingWentWrongException {
+	public void AddTender(TenderDTO TenderDto) throws SomethingWentWrongException {
 		// 
 	  Connection connection = null;
 	  
@@ -31,8 +31,8 @@ public class TenderDAOimpl implements TenderDAO{
 		  
 		  PreparedStatement ps = connection.prepareStatement(INSERT_QUERY);
 		  
-		  ps.setString(1, tenddto.getTender_id());
-		  ps.setString(2, tenddto.getTender_Name());
+		  ps.setString(1, TenderDto.getTender_id());
+		  ps.setString(2, TenderDto.getTender_Name());
 		  
 		  ps.executeUpdate();
 		  
@@ -99,7 +99,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 	}
 
 	@Override
-	public List<TenderDTO> ViewTenderByTenderId(String tend_id) throws SomethingWentWrongException, NoRecordFoundException {
+	public List<TenderDTO> ViewTenderByTenderId(String TenderId) throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -112,7 +112,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  
 			  PreparedStatement ps = connection.prepareStatement(INSERT_QUERY);
 			  
-			  ps.setString(1, tend_id);
+			  ps.setString(1, TenderId);
 			  
 			  ResultSet rs = ps.executeQuery();
 				
@@ -139,7 +139,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 	}
 
 	@Override
-	public void AssignTendertoVender(String TenderName, String vendor_id) throws SomethingWentWrongException {
+	public void AssignTendertoVender(String TenderName, String Vendor_id) throws SomethingWentWrongException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -153,7 +153,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  PreparedStatement ps = connection.prepareStatement(UPDATE_QUERY);
 			  
 			  ps.setString(1, TenderName);
-			  ps.setString(2, vendor_id);
+			  ps.setString(2, Vendor_id);
 			  
 			  ps.executeUpdate();
 			  
@@ -171,7 +171,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 	}
 
 	@Override
-	public boolean VerifyTenderName(String tendi_name) throws SomethingWentWrongException, NoRecordFoundException {
+	public boolean VerifyTenderName(String TenderName) throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -184,7 +184,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  
 			  PreparedStatement ps = connection.prepareStatement(VERIFY_QUERY);
 			  
-			  ps.setString(1, tendi_name);
+			  ps.setString(1, TenderName);
 			  
 			  ResultSet rs = ps.executeQuery();
 				
@@ -217,7 +217,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 	}
 
 	@Override
-	public boolean VerifyVenderid(String Vendi_id) throws SomethingWentWrongException, NoRecordFoundException {
+	public boolean VerifyVenderid(String VendorId) throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		
 		Connection connection = null;
@@ -230,7 +230,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			  
 			  PreparedStatement ps = connection.prepareStatement(VERIFY_QUERY);
 			  
-			  ps.setString(1, Vendi_id);
+			  ps.setString(1, VendorId);
 			  
 			  ResultSet rs = ps.executeQuery();
 				

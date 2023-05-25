@@ -18,9 +18,9 @@ public class VenderUI {
 	static void ViewVendors() {
 		
 		List<VendorDTO> list = new ArrayList<>();
-		VendorDAO ven = new VendorDAOimpl();
+		VendorDAO Vendor = new VendorDAOimpl();
 		try {
-			list = ven.ViewVendors();
+			list = Vendor.ViewVendors();
 			System.out.println(list);
 		} catch (SomethingWentWrongException e) {
 			// TODO Auto-generated catch block
@@ -39,10 +39,10 @@ public class VenderUI {
 static void ViewAllBidsofaTender(Scanner sc) {
 	    List<BidderDTO> list = new ArrayList<>();
 		System.out.println("Enter Tender_id whose bids will be displayed");
-		String tender_id = sc.next();
-		BidderDAO ven = new BidderDAOimpl();
+		String TenderId = sc.next();
+		BidderDAO Vendor = new BidderDAOimpl();
         try {
-        	list = ven.viewAllBidsofaTender(tender_id);
+        	list = Vendor.ViewAllBidsofaTender(TenderId);
         	System.out.println(list);
 		} catch (SomethingWentWrongException e) {
 			// TODO Auto-generated catch block
@@ -55,18 +55,18 @@ static void ViewAllBidsofaTender(Scanner sc) {
 	
 
 static void UpdateAccDetails(Scanner sc) throws SomethingWentWrongException, NoRecordFoundException {
-	VendorDAO ven = new VendorDAOimpl();
+	VendorDAO Vendor = new VendorDAOimpl();
 	System.out.println("Enter vender id whose credentials you want to update");
-	String ven_id = sc.next();
+	String VendorId = sc.next();
 	
-	if(ven.VerifyVendercredentialsforUpdate(ven_id)) {
+	if(Vendor.VerifyVendercredentialsforUpdate(VendorId)) {
 		System.out.println("Enter new vender name");
-		String name = sc.next();
+		String Name = sc.next();
 		System.out.println("Enter new vender password");
-		String password = sc.next();
+		String Password = sc.next();
 		
 		try {
-			ven.updatecredentials(name, password, ven_id);
+			Vendor.Updatecredentials(Name, Password, VendorId);
 		    System.out.println("Updated successfully");
 		} catch (SomethingWentWrongException e) {
 			// TODO Auto-generated catch block
@@ -80,12 +80,12 @@ static void UpdateAccDetails(Scanner sc) throws SomethingWentWrongException, NoR
 }
 
 
-static void viewbidhistory(Scanner sc) throws SomethingWentWrongException, NoRecordFoundException {
-	BidderDAO ven = new BidderDAOimpl();
+static void ViewBidHistory(Scanner sc) throws SomethingWentWrongException, NoRecordFoundException {
+	BidderDAO Vendor = new BidderDAOimpl();
 	System.out.println("Enter Vendor_id whose bids you want to view");
-	String ven_id = sc.next();
+	String VendorId = sc.next();
 	List<BidderDTO> list = new ArrayList<>();
-	list = ven.viewAllBidsOfaVendor(ven_id);
+	list = Vendor.ViewAllBidsofaTender(VendorId);
 	System.out.println(list);
 }
 

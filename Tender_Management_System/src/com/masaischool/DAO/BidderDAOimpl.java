@@ -21,7 +21,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 }	
 	
 	@Override
-	public List<BidderDTO> viewAllBidsofaTender(String tend_id)
+	public List<BidderDTO> ViewAllBidsofaTender(String Tenderid)
 			throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		
@@ -34,7 +34,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 			String SELECT_QUERY = "SELECT * FROM BIDDER WHERE Tender_id = ?";
 			
 			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
-			ps.setString(1, tend_id);
+			ps.setString(1, Tenderid);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -67,7 +67,7 @@ private boolean isResultsetEmpty(ResultSet rs)throws SQLException{
 	}
 
 	@Override
-	public List<BidderDTO> viewAllBidsOfaVendor(String vendorId)
+	public List<BidderDTO> ViewAllBidsOfaVendor(String VendorId)
 			throws SomethingWentWrongException, NoRecordFoundException {
 		// TODO Auto-generated method stub
 		

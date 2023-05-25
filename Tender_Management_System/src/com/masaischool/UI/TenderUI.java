@@ -19,15 +19,15 @@ public class TenderUI {
 	static void CreateTender(Scanner sc) {
 		
 		System.out.print("Enter Tender id ");
-		String tend_id = sc.next();
+		String TenderId = sc.next();
 		System.out.print("Enter Tender Name ");
-		String tend_name = sc.next();
+		String TenderName = sc.next();
 		
-		TenderDTO ted = new TenderDTOimpl(tend_id,tend_name);
+		TenderDTO TenderDto = new TenderDTOimpl(TenderId,TenderName);
 		
-		TenderDAO tedy = new TenderDAOimpl();
+		TenderDAO TenderDao = new TenderDAOimpl();
 		try {
-			tedy.addTender(ted);
+			TenderDao.AddTender(TenderDto);
 			System.out.println("Tender added successfully");
 		} catch (SomethingWentWrongException e) {
 			System.out.println(e);
@@ -37,9 +37,9 @@ public class TenderUI {
 	static void ViewTenders() {
 		
 		List<TenderDTO> list = new ArrayList<>();
-		TenderDAO ven = new TenderDAOimpl();
+		TenderDAO Vendor = new TenderDAOimpl();
 		try {
-			list = ven.ViewTenders();
+			list = Vendor.ViewTenders();
 			System.out.println(list);
 		} catch (SomethingWentWrongException e) {
 			// TODO Auto-generated catch block

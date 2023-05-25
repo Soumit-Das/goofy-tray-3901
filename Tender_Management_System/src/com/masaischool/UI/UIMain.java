@@ -9,7 +9,7 @@ import com.masaischool.Exception.SomethingWentWrongException;
 
 public class UIMain {
 
-	static void adminMenu() {
+	static void AdminMenu() {
 		System.out.println("");
 		System.out.println("0. Logout");
 		System.out.println("1. View all the vendors.");
@@ -21,14 +21,14 @@ public class UIMain {
 	}
 	
 	
-	static void Displayadminmenu(Scanner sc) {
-		int choice;
+	static void DisplayAdminMenu(Scanner sc) {
+		int Choice;
 		do {
-		adminMenu();
+			AdminMenu();
 		System.out.println("Enter Selection");
-		choice = sc.nextInt();
+		Choice = sc.nextInt();
 		System.out.println("");
-		switch(choice) {
+		switch(Choice) {
 		
 		case 0:
 //			AdminUI.logout()  Temporary purpose
@@ -57,10 +57,10 @@ public class UIMain {
 		default : System.out.println("Wrong credentials");	
 		
 		}
-	}while(choice != 0);
+	}while(Choice != 0);
 	}
 	
-	static void adminLogin(Scanner sc){
+	static void AdminLogin(Scanner sc){
 		
 		System.out.println("Enter Username");
 		String username = sc.next();
@@ -69,7 +69,7 @@ public class UIMain {
 		
 		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
 			System.out.println("Welcome Admin");
-			Displayadminmenu(sc);
+			DisplayAdminMenu(sc);
 		}else {
 			System.out.println("Wrong credentials");
 		}
@@ -88,14 +88,14 @@ public class UIMain {
 		System.out.println("");
 	}
 	
-	static void DisplayVendormenu(Scanner sc) {
-		int choice;
+	static void DisplayVendorMenu(Scanner sc) {
+		int Choice;
 		do {
 		VendorMenu();
 		System.out.println("Enter Selection");
-		choice = sc.nextInt();
+		Choice = sc.nextInt();
 		System.out.println("");
-		switch(choice) {
+		switch(Choice) {
 		
 		case 0:
 //			VendorUI.logout()  Temporary purpose
@@ -120,7 +120,7 @@ public class UIMain {
 			break;
 		case 4:
 			try {
-				VenderUI.viewbidhistory(sc);
+				VenderUI.ViewBidHistory(sc);
 			} catch (SomethingWentWrongException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -137,20 +137,20 @@ public class UIMain {
 		}
 		
 	
-	}while(choice != 0);
+	}while(Choice != 0);
 	}
 	
-	static void vendorLogin(Scanner sc){
+	static void VendorLogin(Scanner sc){
 		
 		System.out.println("Enter Username");
-		String username = sc.next();
+		String Username = sc.next();
 		System.out.println("Enter password");
-		String password = sc.next();
-		VendorDAO ven = new VendorDAOimpl();
+		String Password = sc.next();
+		VendorDAO Vendor = new VendorDAOimpl();
 		try {
 			try {
-				if(ven.VerifyVendercredentials(username,password)) {
-					DisplayVendormenu(sc);
+				if(Vendor.VerifyVendercredentials(Username,Password)) {
+					DisplayVendorMenu(sc);
 				}else {
 					System.out.println("Wrong credentials");
 				}
@@ -178,15 +178,15 @@ public class UIMain {
 	   Scanner sc = new Scanner(System.in);
 	   System.out.println("1. Admin Login");
 	   System.out.println("2. Vendor Login");
-	   int choice = sc.nextInt();
+	   int Choice = sc.nextInt();
 	   
-	   switch(choice) {
+	   switch(Choice) {
 	   
 	   case 1:
-		   adminLogin(sc);
+		   AdminLogin(sc);
 		   break;
 	   case 2:
-		   vendorLogin(sc);
+		   VendorLogin(sc);
 		   break;
 	   
 	   default : System.out.println("Choose appropriate option");	   
